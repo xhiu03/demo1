@@ -21,7 +21,7 @@ public class CustomUserDetail implements UserDetails {
     }
     @Override
     public Collection<? extends  GrantedAuthority> getAuthorities(){
-        return Arrays.stream(userRepository.getRoleOfUser(user.getId()))
+        return Arrays.stream(userRepository.getRolesOfUser(user.getId()))
                 .map(SimpleGrantedAuthority::new)
                 .collect(Collectors.toSet());
     }
